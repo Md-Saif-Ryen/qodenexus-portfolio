@@ -3,152 +3,606 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QodeNexus | Turning Ideas Into Reality</title>
+    <title>QodeNexus | Turning Ideas Into Reality | Md Hessamuddin</title>
+    <meta name="description" content="QodeNexus - IT Services Company founded by Md Hessamuddin. Specializing in Web Development, Mobile Apps, and Digital Solutions. Based in Bihar, India.">
+    <meta name="keywords" content="QodeNexus, IT Services, Web Development, Mobile Apps, Bihar, Md Hessamuddin">
+    <meta name="author" content="Md Hessamuddin">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px rgba(0,0,0,0.15);
+        }
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            backdrop-filter: blur(10px);
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg fixed w-full z-10">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-blue-600">QodeNexus</h1>
-            <div class="space-x-6">
-                <a href="#home" class="text-gray-700 hover:text-blue-600">Home</a>
-                <a href="#projects" class="text-gray-700 hover:text-blue-600">Projects</a>
-                <a href="#skills" class="text-gray-700 hover:text-blue-600">Skills</a>
-                <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+    <nav class="bg-white/95 backdrop-blur-md shadow-lg fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-code text-3xl text-blue-600"></i>
+                    <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">QodeNexus</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition">About</a>
+                    <a href="#projects" class="text-gray-700 hover:text-blue-600 font-medium transition">Projects</a>
+                    <a href="#skills" class="text-gray-700 hover:text-blue-600 font-medium transition">Skills</a>
+                    <a href="#journey" class="text-gray-700 hover:text-blue-600 font-medium transition">Journey</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium transition">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="flex flex-col space-y-3 px-4 py-3">
+                <a href="#home" class="text-gray-700 hover:text-blue-600 py-2">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 py-2">About</a>
+                <a href="#projects" class="text-gray-700 hover:text-blue-600 py-2">Projects</a>
+                <a href="#skills" class="text-gray-700 hover:text-blue-600 py-2">Skills</a>
+                <a href="#journey" class="text-gray-700 hover:text-blue-600 py-2">Journey</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 py-2">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-24 pb-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div class="max-w-4xl mx-auto text-center px-4">
-            <h1 class="text-5xl font-bold mb-4">Md Hessamuddin</h1>
-            <p class="text-2xl mb-4">Founder, QodeNexus</p>
-            <p class="text-xl italic">"Turning Ideas Into Reality"</p>
-            <p class="mt-6 text-lg">📍 Bihar, India | Founded: August 2025</p>
+    <section id="home" class="min-h-screen flex items-center justify-center gradient-bg text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative z-10 max-w-6xl mx-auto text-center px-4 animate-fade-in">
+            <div class="mb-6">
+                <div class="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-sm mb-4">
+                    <i class="fas fa-map-marker-alt mr-2"></i> Bihar, India
+                </div>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Md Hessamuddin</h1>
+            <p class="text-2xl md:text-3xl mb-4 font-light">Founder, <span class="font-bold">QodeNexus</span></p>
+            <p class="text-xl md:text-2xl italic mb-6">"Turning Ideas Into Reality"</p>
+            <div class="flex flex-wrap justify-center gap-4 mt-8">
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                    <i class="fas fa-calendar-alt mr-2"></i> Founded: August 2025
+                </div>
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                    <i class="fas fa-building mr-2"></i> Registered Company
+                </div>
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                    <i class="fas fa-users mr-2"></i> IT Services
+                </div>
+            </div>
+            <div class="mt-10">
+                <a href="#contact" class="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:shadow-xl transition transform hover:scale-105">
+                    <i class="fas fa-paper-plane mr-2"></i> Get in Touch
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
         </div>
     </section>
 
-    <!-- Mission -->
-    <section class="py-12 bg-white">
-        <div class="max-w-4xl mx-auto text-center px-4">
-            <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
-            <p class="text-xl text-gray-700">Empowering businesses and individuals with innovative, affordable, and reliable IT solutions that turn ideas into reality.</p>
-            <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-blue-50 p-4 rounded">🚀 Startups</div>
-                <div class="bg-blue-50 p-4 rounded">🏪 Local Business</div>
-                <div class="bg-blue-50 p-4 rounded">📚 Education</div>
-                <div class="bg-blue-50 p-4 rounded">🏥 Healthcare</div>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">About <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">QodeNexus</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-quote-left text-4xl text-blue-600 mt-1"></i>
+                        <p class="text-gray-700 text-lg leading-relaxed">Empowering businesses and individuals with innovative, affordable, and reliable IT solutions that turn ideas into reality.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="stat-card p-4 rounded-lg border border-gray-200">
+                            <i class="fas fa-rocket text-3xl text-blue-600 mb-2"></i>
+                            <p class="font-bold text-gray-800">Mission Driven</p>
+                            <p class="text-sm text-gray-600">Quality First Approach</p>
+                        </div>
+                        <div class="stat-card p-4 rounded-lg border border-gray-200">
+                            <i class="fas fa-hand-holding-heart text-3xl text-purple-600 mb-2"></i>
+                            <p class="font-bold text-gray-800">Client Focused</p>
+                            <p class="text-sm text-gray-600">100% Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Company Profile</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between py-2 border-b border-gray-200">
+                            <span class="font-semibold">Company Name:</span>
+                            <span>QodeNexus</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-200">
+                            <span class="font-semibold">Founded:</span>
+                            <span>August 2025</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-200">
+                            <span class="font-semibold">Location:</span>
+                            <span>Bihar, India</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-200">
+                            <span class="font-semibold">Type:</span>
+                            <span>IT Services & Consulting</span>
+                        </div>
+                        <div class="flex justify-between py-2">
+                            <span class="font-semibold">Industries:</span>
+                            <span>Startups, Local Business, Education, Healthcare</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="py-12 bg-gray-100">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-10">My Projects</h2>
+    <!-- Services Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Our <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Services</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Comprehensive IT solutions tailored to your business needs</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg hover-scale">
+                    <i class="fas fa-globe text-4xl text-blue-600 mb-3"></i>
+                    <h3 class="font-bold text-gray-800">Web Development</h3>
+                    <p class="text-sm text-gray-600 mt-2">Responsive websites</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg hover-scale">
+                    <i class="fas fa-mobile-alt text-4xl text-purple-600 mb-3"></i>
+                    <h3 class="font-bold text-gray-800">Mobile Apps</h3>
+                    <p class="text-sm text-gray-600 mt-2">Android & iOS</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg hover-scale">
+                    <i class="fas fa-shopping-cart text-4xl text-blue-600 mb-3"></i>
+                    <h3 class="font-bold text-gray-800">E-commerce</h3>
+                    <p class="text-sm text-gray-600 mt-2">Online stores</p>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg hover-scale">
+                    <i class="fas fa-paint-brush text-4xl text-purple-600 mb-3"></i>
+                    <h3 class="font-bold text-gray-800">UI/UX Design</h3>
+                    <p class="text-sm text-gray-600 mt-2">User experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Featured <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Projects</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Real-world solutions built with cutting-edge technologies</p>
+            </div>
             
             <!-- Project 1 -->
-            <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
-                <h3 class="text-2xl font-bold text-blue-600">Nearme Biz</h3>
-                <p class="text-gray-600 mt-2">Flutter | .NET | MySQL | API | FCM</p>
-                <p class="mt-3"><strong>My Role:</strong> Frontend Developer & App Developer</p>
-                <p class="mt-2"><strong>Results:</strong> ✅ 500+ downloads on Play Store | Active user engagement</p>
-                <p class="mt-2 text-gray-600">📱 Self Project - Helping local businesses connect with nearby customers</p>
+            <div class="project-card bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl shadow-xl mb-8 overflow-hidden">
+                <div class="grid md:grid-cols-3">
+                    <div class="md:col-span-1 bg-gradient-to-br from-blue-600 to-purple-600 p-8 flex items-center justify-center">
+                        <i class="fas fa-store text-7xl text-white"></i>
+                    </div>
+                    <div class="md:col-span-2 p-8">
+                        <div class="flex justify-between items-start flex-wrap gap-2 mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">Nearme Biz</h3>
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Live on Play Store</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A location-based business discovery platform connecting local businesses with nearby customers in real-time.</p>
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <p class="text-sm text-gray-500">🛠️ Technologies</p>
+                                <p class="font-semibold text-gray-800">Flutter | .NET | MySQL | REST API | FCM</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">👨‍💻 My Role</p>
+                                <p class="font-semibold text-gray-800">Frontend Developer & App Developer</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <p class="text-sm text-gray-500 mb-2">📊 Key Achievements</p>
+                            <ul class="space-y-1">
+                                <li class="text-gray-700"><i class="fas fa-download text-green-600 mr-2"></i> 500+ downloads on Google Play Store</li>
+                                <li class="text-gray-700"><i class="fas fa-bell text-blue-600 mr-2"></i> Real-time push notification system</li>
+                                <li class="text-gray-700"><i class="fas fa-chart-line text-purple-600 mr-2"></i> Active user engagement with 4.2⭐ rating</li>
+                            </ul>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-google-play mr-1"></i> Play Store</a>
+                            <a href="#" class="text-gray-600 hover:text-gray-800"><i class="fab fa-github mr-1"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Project 2 -->
-            <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
-                <h3 class="text-2xl font-bold text-blue-600">WonderAd</h3>
-                <p class="text-gray-600 mt-2">HTML | Tailwind CSS | JavaScript</p>
-                <p class="mt-3"><strong>My Role:</strong> Frontend Developer</p>
-                <p class="mt-2"><strong>Results:</strong> ✅ 100+ customer interactions (Google Analytics)</p>
-                <p class="mt-2 text-gray-600">🌐 Self Project - Advertising platform with responsive design</p>
+            <div class="project-card bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl shadow-xl mb-8 overflow-hidden">
+                <div class="grid md:grid-cols-3">
+                    <div class="md:col-span-1 bg-gradient-to-br from-purple-600 to-pink-600 p-8 flex items-center justify-center">
+                        <i class="fas fa-ad text-7xl text-white"></i>
+                    </div>
+                    <div class="md:col-span-2 p-8">
+                        <div class="flex justify-between items-start flex-wrap gap-2 mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">WonderAd</h3>
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Live</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Digital advertising platform helping businesses reach their target audience with engaging ad campaigns.</p>
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <p class="text-sm text-gray-500">🛠️ Technologies</p>
+                                <p class="font-semibold text-gray-800">HTML | Tailwind CSS | JavaScript</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">👨‍💻 My Role</p>
+                                <p class="font-semibold text-gray-800">Frontend Developer</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <p class="text-sm text-gray-500 mb-2">📊 Key Achievements</p>
+                            <ul class="space-y-1">
+                                <li class="text-gray-700"><i class="fas fa-chart-simple text-green-600 mr-2"></i> 100+ customer interactions (Google Analytics)</li>
+                                <li class="text-gray-700"><i class="fas fa-mobile-alt text-blue-600 mr-2"></i> Fully responsive across all devices</li>
+                                <li class="text-gray-700"><i class="fas fa-tachometer-alt text-purple-600 mr-2"></i> Optimized loading speed (90+ PageSpeed score)</li>
+                            </ul>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-external-link-alt mr-1"></i> Live Demo</a>
+                            <a href="#" class="text-gray-600 hover:text-gray-800"><i class="fab fa-github mr-1"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Project 3 -->
-            <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
-                <h3 class="text-2xl font-bold text-blue-600">TechyLadder</h3>
-                <p class="text-gray-600 mt-2">React.js | Tailwind CSS | JavaScript | Firebase</p>
-                <p class="mt-3"><strong>My Role:</strong> Frontend Developer</p>
-                <p class="mt-2"><strong>Results:</strong> ✅ Fully functional | Firebase auth integrated</p>
-                <p class="mt-2 text-gray-600">📚 Self Project - Learning platform for tech enthusiasts</p>
+            <div class="project-card bg-gradient-to-r from-green-50 to-teal-50 rounded-2xl shadow-xl overflow-hidden">
+                <div class="grid md:grid-cols-3">
+                    <div class="md:col-span-1 bg-gradient-to-br from-green-600 to-teal-600 p-8 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-7xl text-white"></i>
+                    </div>
+                    <div class="md:col-span-2 p-8">
+                        <div class="flex justify-between items-start flex-wrap gap-2 mb-4">
+                            <h3 class="text-2xl font-bold text-gray-800">TechyLadder</h3>
+                            <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">Live</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">E-learning platform for tech enthusiasts offering courses, tutorials, and coding challenges.</p>
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <p class="text-sm text-gray-500">🛠️ Technologies</p>
+                                <p class="font-semibold text-gray-800">React.js | Tailwind CSS | Firebase</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">👨‍💻 My Role</p>
+                                <p class="font-semibold text-gray-800">Frontend Developer</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 mb-4">
+                            <p class="text-sm text-gray-500 mb-2">📊 Key Achievements</p>
+                            <ul class="space-y-1">
+                                <li class="text-gray-700"><i class="fas fa-user-check text-green-600 mr-2"></i> Firebase Authentication integrated</li>
+                                <li class="text-gray-700"><i class="fas fa-database text-blue-600 mr-2"></i> Real-time database for course content</li>
+                                <li class="text-gray-700"><i class="fas fa-chart-line text-purple-600 mr-2"></i> Growing user base month over month</li>
+                            </ul>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fas fa-external-link-alt mr-1"></i> Live Demo</a>
+                            <a href="#" class="text-gray-600 hover:text-gray-800"><i class="fab fa-github mr-1"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="py-12 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-10">Skills & Technologies</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                <div class="bg-gray-100 p-3 rounded text-center">Java</div>
-                <div class="bg-gray-100 p-3 rounded text-center">Spring Boot</div>
-                <div class="bg-gray-100 p-3 rounded text-center">Dart</div>
-                <div class="bg-gray-100 p-3 rounded text-center">Flutter</div>
-                <div class="bg-gray-100 p-3 rounded text-center">React.js</div>
-                <div class="bg-gray-100 p-3 rounded text-center">Next.js</div>
-                <div class="bg-gray-100 p-3 rounded text-center">TypeScript</div>
-                <div class="bg-gray-100 p-3 rounded text-center">Kotlin</div>
-                <div class="bg-gray-100 p-3 rounded text-center">MongoDB</div>
-                <div class="bg-gray-100 p-3 rounded text-center">Firebase</div>
-                <div class="bg-gray-100 p-3 rounded text-center">Docker</div>
-                <div class="bg-gray-100 p-3 rounded text-center">GitHub</div>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Technical <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Expertise</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">30+ technologies and tools mastered</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                <div class="text-center p-3 bg-white rounded-lg shadow skill-badge cursor-pointer">
+                    <i class="fab fa-java text-3xl text-blue-600"></i>
+                    <p class="font-semibold mt-2">Java</p>
+                </div>
+                <div class="text-center p-3 bg-white rounded-lg shadow skill-badge cursor-pointer">
+                    <i class="fas fa-leaf text-3xl text-green-600"></i>
+                    <p class="font-semibold mt-2">Spring Boot</p>
+                </div>
+                <div class="text-center p-3 bg-white rounded-lg shadow skill-badge cursor-pointer">
+                    <i class="fab fa-js text-3xl text-yellow-500"></i>
+                    <p class="font-semibold mt-2">JavaScript</p>
+                </div>
+                <div class="text-center p-3 bg-white rounded-lg shadow skill-badge cursor-pointer">
+                    <i class="fab fa-react text-3xl text-blue-400"></i>
+                    <p class="font-semibold mt-2">React.js</p>
+                </div>
+                <div class="text-center p-3 bg-white rounded-lg shadow skill-badge cursor-pointer">
+                    <i class="fab fa-flutter text-3xl text-blue-500"></i>
+                    <p class="font-semibold mt-2">Flutter</p>
+                </div>
+                <div class="text-center p-3 bg-white rounded-lg shadow skill-badge cursor-pointer">
+                    <i class="fab fa-node text-3xl text-green-600"></i>
+                    <p class="font-semibold mt-2">Next.js</p>
+                </div>
+                <div class="text-center p-3 bg-white rounded-lg shadow skill-badge cursor-pointer">
+                    <i class="fas fa-database text-3xl text-green-700"></i>
+                    <p class="font-semibold mt-2">MongoDB</p>
+                </div>
+                <div class="text-center p-3 bg-white rounded-lg shadow skill-badge cursor-pointer">
+                    <i class="fas fa-fire text-3xl text-orange-500"></i>
+                    <p class="font-semibold mt-2">Firebase</p>
+                </div>
+                <div class="text-center p-3 bg-white rounded-lg shadow skill-badge cursor-pointer">
+                    <i class="fab fa-docker text-3xl text-blue-500"></i>
+                    <p class="font-semibold mt-2">Docker</p>
+                </div>
+                <div class="text-center p-3 bg-white rounded-lg shadow skill-badge cursor-pointer">
+                    <i class="fab fa-github text-3xl text-gray-800"></i>
+                    <p class="font-semibold mt-2">GitHub</p>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-2xl p-8 shadow-lg">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Full Technology Stack</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Java</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Spring Boot</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Dart</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Flutter</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">React.js</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">React Native</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Next.js</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">TypeScript</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Kotlin</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">HTML5</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">CSS3</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Tailwind CSS</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">.NET</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">MySQL</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">MongoDB</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Firebase</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Supabase</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Figma</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">VS Code</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Android Studio</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">IntelliJ IDEA</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Postman</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Docker</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Git/GitHub</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">C Programming</span>
+                    <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">Canva</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Success Story -->
-    <section class="py-12 bg-blue-50">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-6">Success Story</h2>
-            <div class="bg-white p-6 rounded-lg shadow">
-                <h3 class="text-xl font-bold mb-3">📖 Nearme Biz – From Idea to 500+ Downloads</h3>
-                <p class="mb-3">When I started Nearme Biz from Bihar with no team and limited budget, I built it myself using Flutter & .NET.</p>
-                <p class="mb-3"><strong>Impact:</strong></p>
-                <ul class="list-disc ml-6">
-                    <li>500+ downloads in first few months</li>
-                    <li>20+ local businesses got visibility</li>
-                    <li>Real-time push notifications</li>
-                </ul>
-                <p class="mt-4 font-bold text-blue-600">"If I can build this from Bihar, imagine what we can do for YOUR business"</p>
+    <!-- Success Story & Journey -->
+    <section id="journey" class="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Success <span class="text-yellow-300">Journey</span></h2>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto mb-6"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+                    <i class="fas fa-trophy text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-3">Nearme Biz Success Story</h3>
+                    <p class="mb-4 text-white/90">Started from Bihar with no team and limited budget, built entirely by myself using Flutter & .NET.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i> 500+ downloads in first few months</div>
+                        <div class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i> 20+ local businesses got visibility</div>
+                        <div class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i> Real-time push notification system</div>
+                    </div>
+                    <p class="mt-4 italic text-yellow-200">"If I can build this from Bihar, imagine what we can do for YOUR business"</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+                    <i class="fas fa-chart-line text-4xl text-green-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-3">Impact Metrics</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center">
+                            <p class="text-3xl font-bold">500+</p>
+                            <p class="text-sm">App Downloads</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-3xl font-bold">100+</p>
+                            <p class="text-sm">Customer Interactions</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-3xl font-bold">20+</p>
+                            <p class="text-sm">Businesses Helped</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-3xl font-bold">30+</p>
+                            <p class="text-sm">Technologies</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Future Plan -->
-    <section class="py-12 bg-gray-900 text-white">
-        <div class="max-w-4xl mx-auto text-center px-4">
-            <h2 class="text-3xl font-bold mb-6">Our Future Plan</h2>
-            <p class="text-2xl font-bold text-yellow-400 mb-4">"We plan to hire 5 local developers in the next 6 months"</p>
-            <div class="grid md:grid-cols-2 gap-4 mt-8 text-left">
-                <div class="bg-gray-800 p-4 rounded">📅 Q1 2026: Expand services</div>
-                <div class="bg-gray-800 p-4 rounded">👨‍💻 Q2 2026: Hire 2 junior devs</div>
-                <div class="bg-gray-800 p-4 rounded">🏢 Q3 2026: Hire 3 more + office</div>
-                <div class="bg-gray-800 p-4 rounded">🤝 Q4 2026: Partner with local biz</div>
+    <section class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Future <span class="text-blue-400">Roadmap</span></h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mb-6"></div>
+                <p class="text-gray-300 max-w-2xl mx-auto">Our commitment to Bihar's tech ecosystem growth</p>
+            </div>
+            <div class="text-center mb-8">
+                <p class="text-2xl font-bold text-yellow-400">"We plan to hire 5 local developers in the next 6 months"</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6 mb-12">
+                <div class="bg-gray-800 p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-blue-400 mb-2">Q1 2026</div>
+                    <i class="fas fa-chart-line text-3xl mb-3"></i>
+                    <p class="font-semibold">Expand Service Offerings</p>
+                    <p class="text-sm text-gray-400 mt-2">New service lines & packages</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-blue-400 mb-2">Q2 2026</div>
+                    <i class="fas fa-user-plus text-3xl mb-3"></i>
+                    <p class="font-semibold">Hire 2 Junior Developers</p>
+                    <p class="text-sm text-gray-400 mt-2">Fresh talent from Bihar</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-blue-400 mb-2">Q3 2026</div>
+                    <i class="fas fa-building text-3xl mb-3"></i>
+                    <p class="font-semibold">Office Setup + 3 More Hires</p>
+                    <p class="text-sm text-gray-400 mt-2">Physical presence in Patna</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl text-center">
+                    <div class="text-3xl font-bold text-blue-400 mb-2">Q4 2026</div>
+                    <i class="fas fa-handshake text-3xl mb-3"></i>
+                    <p class="font-semibold">Partner with Local Businesses</p>
+                    <p class="text-sm text-gray-400 mt-2">Strategic alliances</p>
+                </div>
+            </div>
+            <div class="bg-gray-800 rounded-2xl p-8">
+                <h3 class="text-xl font-bold text-center mb-6">Why BEA Should Recommend QodeNexus?</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i> ✅ 100% Bihar-based team</div>
+                    <div class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i> ✅ 30-40% lower than metro prices</div>
+                    <div class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i> ✅ Global standards, local pricing</div>
+                    <div class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i> ✅ Registered company with GST billing</div>
+                    <div class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i> ✅ Delivery in 2-4 weeks</div>
+                    <div class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i> ✅ Free 3 months maintenance</div>
+                    <div class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i> ✅ Committed to hiring local talent</div>
+                    <div class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-3"></i> ✅ Understanding of local market needs</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="py-12 bg-white">
-        <div class="max-w-4xl mx-auto text-center px-4">
-            <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
-            <div class="space-y-3 text-lg">
-                <p>📧 abc@gmail.com</p>
-                <p>🔗 <a href="#" class="text-blue-600">linkedin.com/in/saif</a></p>
-                <p>📱 WhatsApp: 12345654321</p>
-                <p>🌐 www.qodenexus.com</p>
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Touch</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Let's discuss how QodeNexus can help turn your ideas into reality</p>
             </div>
-            <div class="mt-8 p-4 bg-blue-600 text-white rounded-lg">
-                <p class="text-xl">"Let's Turn Your Idea Into Reality"</p>
-                <p class="mt-2">Made in Bihar ❤️ | QodeNexus</p>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl">
+                        <i class="fas fa-envelope text-3xl text-blue-600"></i>
+                        <div>
+                            <p class="text-sm text-gray-500">Email</p>
+                            <p class="font-semibold text-gray-800">qodenexus@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl">
+                        <i class="fab fa-whatsapp text-3xl text-green-500"></i>
+                        <div>
+                            <p class="text-sm text-gray-500">WhatsApp (Fastest Response)</p>
+                            <p class="font-semibold text-gray-800">+91 12345654321</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl">
+                        <i class="fab fa-linkedin text-3xl text-blue-700"></i>
+                        <div>
+                            <p class="text-sm text-gray-500">LinkedIn</p>
+                            <p class="font-semibold text-gray-800">linkedin.com/in/mdhessamuddin</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl">
+                        <i class="fas fa-globe text-3xl text-purple-600"></i>
+                        <div>
+                            <p class="text-sm text-gray-500">Website</p>
+                            <p class="font-semibold text-gray-800">www.qodenexus.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Quick Response Guarantee</h3>
+                    <p class="text-gray-600 mb-6">I typically respond within 24-48 hours. For urgent queries, WhatsApp is the fastest way to reach me.</p>
+                    <div class="space-y-3">
+                        <div class="flex items-center"><i class="fas fa-clock text-blue-600 mr-3"></i> 24-48 hours response time</div>
+                        <div class="flex items-center"><i class="fas fa-language text-blue-600 mr-3"></i> Support in Hindi & English</div>
+                        <div class="flex items-center"><i class="fas fa-rupee-sign text-blue-600 mr-3"></i> Free initial consultation</div>
+                    </div>
+                    <div class="mt-8 p-4 bg-white rounded-xl text-center">
+                        <p class="text-xl font-bold text-gray-800">"Let's Turn Your Idea Into Reality"</p>
+                        <p class="text-gray-600 mt-2">Made in Bihar ❤️ | QodeNexus</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2025 QodeNexus. All rights reserved. | Founded by Md Hessamuddin</p>
+            <p class="text-gray-400 text-sm mt-2">From Bihar, For the World 🌍</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
