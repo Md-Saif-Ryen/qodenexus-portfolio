@@ -5,7 +5,7 @@
 ![Founder](https://img.shields.io/badge/Founder-Md%20Hessamuddin-green)
 
 ## 🌟 Live Website
-🔗 **[View Portfolio](https://your-username.github.io/qodenexus-portfolio)** *(Replace your-username with your GitHub username)*
+🔗 **[View Portfolio](https://md-saif-ryen.github.io/qodenexus-portfolio/)** *(Replace your-username with your GitHub username)*
 
 ---
 
